@@ -1,0 +1,52 @@
+[
+  {
+    "id": "gnn-drug-discovery",
+    "title": "The Rise of Graph Neural Networks in Drug Discovery",
+    "author": "Dr. Aarav Mehta",
+    "date": "2026-05-12",
+    "domain": "Data Science",
+    "tags": ["AI", "Biotech", "Graph Theory", "Machine Learning"],
+    "summary": "How Graph Neural Networks (GNNs) are revolutionizing the biochemical pipeline, reducing drug candidate identification times from years to weeks.",
+    "content": "Graph Neural Networks (GNNs) have emerged as one of the most exciting breakthroughs in modern biochemistry and pharmacology. Historically, discovering a new drug and bringing it to market takes over a decade and costs upwards of $2.6 billion. A significant bottleneck in this pipeline is screening billions of molecular compounds to find those that successfully bind to target proteins.\n\n### Why Graphs?\nMolecules are naturally represented as graphs, where atoms are nodes and chemical bonds are edges. Traditional convolutional neural networks (CNNs) are optimized for grid-like data like images, but fail on unstructured molecular topologies. GNNs, on the other hand, perform message-passing across nodes, allowing the network to capture spatial conformation, atomic properties, and bond strengths dynamically.\n\n### Accelerated Screening\nUsing GNNs, researchers can predict the binding affinity, toxicity, and solubility of prospective compounds with unprecedented speed. In a recent study, researchers trained a message-passing neural network on over 100,000 compounds to predict antibacterial activity, resulting in the discovery of *Halicin*, a novel antibiotic capable of clearing drug-resistant bacterial strains.\n\n### Future Outlook\nAs deep learning models grow more robust and integration with quantum chemistry simulators improves, we can expect GNNs to become standard in drug discovery, bringing us closer to a future of rapid, personalized medicine."
+  },
+  {
+    "id": "nextjs-15-web-ux",
+    "title": "Next.js 15: Elevating Web UX with Server Components",
+    "author": "Sarah Jenkins",
+    "date": "2026-05-20",
+    "domain": "Technology",
+    "tags": ["React", "Frontend", "Web Performance", "NextJS"],
+    "summary": "An in-depth analysis of Next.js 15 server-first architectural paradigms, showing how zero-bundle-size components improve Core Web Vitals.",
+    "content": "Web development is shifting away from heavy client-side JavaScript towards server-first rendering, and Next.js 15 is leading this charge. By fully leveraging React Server Components (RSCs), Next.js allows developers to build complex interactive UIs while shipping virtually zero JavaScript to the client by default.\n\n### React Server Components (RSCs)\nIn typical single-page applications, the client downloads the entire JS bundle, parses it, and then requests data from APIs. This often results in a poor Largest Contentful Paint (LCP) and high Interaction to Next Paint (INP). RSCs change this by executing purely on the server. The HTML is streamed directly to the browser, bypassing the need for client-side hydration for static sections.\n\n### Core Performance Enhancements\n1. **Zero Client-Side JS:** Static text, layouts, and markdown rendering components remain on the server, reducing the script loading times.\n2. **Direct Database Access:** RSCs run on the server, meaning they can query databases directly without exposing sensitive endpoints to the public.\n3. **Improved SEO:** Search engines receive fully rendered semantic markup immediately, boosting indexing speed and ranking.\n\n### A Visual Hierarchy\nIntegrating server and client components requires careful design. For interactive parts (like search bars, filters, and comment sections), the `'use client'` directive is utilized, allowing React to hydrate only the micro-components that need interactivity while leaving the layout server-rendered. This hybrid architecture represents the future of premium web engineering."
+  },
+  {
+    "id": "f1-telemetry-analytics",
+    "title": "The Analytics Behind Formula 1 Telemetry",
+    "author": "Marc Hamilton",
+    "date": "2026-05-18",
+    "domain": "Sports",
+    "tags": ["Data Analytics", "Formula 1", "Real-time Systems", "IoT"],
+    "summary": "Discover how modern Formula 1 teams ingest and analyze over 1.1 million data points per second from 300+ sensors to make split-second pit-lane decisions.",
+    "content": "Formula 1 is as much a contest of software engineering and data analytics as it is of driving skill. Every race weekend, each F1 car is fitted with over 300 sensors measuring everything from tire thermal degradation and brake caliper pressures to structural g-force loads and exhaust flow velocity.\n\n### Ingestion at Scale\nDuring a Grand Prix, cars transmit live telemetry over high-frequency radio waves directly to the team's pit wall and remote factory. This data is ingested at a rate of 1.1 million data points per second. Using stream-processing frameworks, the telemetry is processed in real time and visualized for race engineers.\n\n### Predictive Modeling & Strategy\n F1 teams use predictive models to determine pit stop windows, tire wear trajectories, and overtaking probabilities:\n- **Tire Degradation:** Machine learning models predict the exact lap a tire's grip will 'fall off the cliff' based on track temperatures and driver throttle inputs.\n- **Undercut/Overcut Calculations:** Simulations run hundreds of thousands of race permutations per second, informing strategists whether to pit early and run on fresh tires or stay out on worn tires to gain track position.\n\n### Conclusion\nIn a sport where championships are decided by thousandths of a second, the ability to turn raw telemetry into actionable decisions is the ultimate competitive advantage."
+  },
+  {
+    "id": "quant-trading-strategies",
+    "title": "Modern Quantitative Trading Strategies",
+    "author": "Elena Rostova",
+    "date": "2026-05-15",
+    "domain": "Finance",
+    "tags": ["Python", "Algorithmic Trading", "Finance", "Data Science"],
+    "summary": "A deep dive into statistical arbitrage, high-frequency trading models, and how retail traders can leverage python to deploy risk-managed portfolios.",
+    "content": "Quantitative finance leverages mathematical models and massive datasets to identify profitable inefficiencies in global financial markets. From statistical arbitrage to momentum trading, modern algorithms make up over 70% of total equity trading volume today.\n\n### The Architecture of a Trading System\nA robust quantitative trading system consists of three distinct layers:\n1. **Data Ingestion & Cleaning:** Raw tick data is historicalized, adjusted for splits/dividends, and aligned across timezones.\n2. **Alpha Generation:** The core mathematical model that generates trading signals (buy/sell indications) based on patterns in the data.\n3. **Risk Management & Execution:** Constrains portfolio exposure to keep risk within predefined limits and schedules order routing to minimize market impact.\n\n### Building a Simple Backtester in Python\nWith packages like Pandas, NumPy, and Backtrader, building backtesters has never been easier. The objective of backtesting is to simulate how a strategy would have performed historically. However, quantitative developers must beware of *overfitting*—optimizing strategy parameters too closely to past data, which leads to poor performance in live markets.\n\n### Risk Control is King\nEven the most sophisticated signal generator will fail without disciplined risk management. Position sizing, stop-loss triggers, and dynamic hedging are critical to surviving extreme black swan events."
+  },
+  {
+    "id": "llm-visual-approach",
+    "title": "Unraveling Large Language Models: A Visual Approach",
+    "author": "Devon Harris",
+    "date": "2026-05-22",
+    "domain": "Data Science",
+    "tags": ["LLMs", "Generative AI", "Data Visualization", "Transformers"],
+    "summary": "Demystifying attention mechanisms, tokenization, and vector embedding spaces through interactive geometric visualizations.",
+    "content": "Large Language Models (LLMs) are often treated as mysterious 'black boxes'. However, at their core, LLMs are elegant mathematical systems powered by matrix multiplication and linear algebra. To understand how they generate text, we must look at how words are transformed into geometry.\n\n### 1. Vector Embeddings: Text in High-Dimensional Space\nComputers cannot understand raw words, so words are broken down into sub-word tokens and mapped to dense vectors in high-dimensional space (often 4,096 dimensions or more). In this embedding space, words with similar semantic meanings are grouped closely together. For example, the vector difference between 'King' and 'Man' is geometrically equivalent to the difference between 'Queen' and 'Woman'.\n\n### 2. The Self-Attention Mechanism\nWhy does LLaMA or GPT understand context? The magic lies in the *Self-Attention* mechanism. When processing a sentence like 'The bank of the river', the model assigns attention weights to ensure that the token 'bank' is understood as a geological feature rather than a financial institution. It does this by calculating dot-product attention across all tokens in the context window simultaneously.\n\n### 3. Visualizing Attention Heads\nBy visualizing attention matrices as interactive heatmaps, we can see exactly what the model is 'focusing' on during text generation. We find specialized attention heads that track syntax, pronoun references, or induction loops. Democratizing LLM education through these visual tools is essential to building trusted, safe AI systems."
+  }
+]

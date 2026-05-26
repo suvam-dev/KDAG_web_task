@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0b;
+  --color-bg-2: #111114;
+  --color-ink: #ededed;
+  --color-ink-dim: #8a8a92;
+  --color-line: #1f1f24;
+  --color-accent: #ff3a3a;
+  --color-accent-dim: #b01e1e;
+  --color-warn: #ff5a3c;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Geist', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+  }
+}
+
+/* Custom styles for specific animations and effects */
+
+/* Marquee Scroll Ticker */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: inline-block;
+  animation: ticker-scroll 40s linear infinite;
+}
+
+/* Reveal on Scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* First letter drop cap */
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 600;
+  float: left;
+  line-height: 0.85;
+  margin: 0.2rem 0.6rem -0.2rem 0;
+  color: var(--color-accent);
+}
