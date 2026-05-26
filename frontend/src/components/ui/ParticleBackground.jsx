@@ -1,12 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-const COLOR = [255, 58, 58]; // rgb for #ff3a3a
+const COLOR = [255, 58, 58];
 
-/**
- * ParticleBackground — native canvas, zero library dependencies.
- * We own the <canvas> element entirely. z-index: -1 is set as React inline
- * style on a fixed canvas — no third-party library can override it.
- */
 export default function ParticleBackground() {
   const canvasRef = useRef(null);
 
@@ -18,7 +13,6 @@ export default function ParticleBackground() {
     let animId;
     const mouse = { x: -9999, y: -9999 };
 
-    // ── Resize ──────────────────────────────────────────────────────────────
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -26,11 +20,12 @@ export default function ParticleBackground() {
     resize();
     window.addEventListener('resize', resize);
 
-    // ── Mouse repulse ────────────────────────────────────────────────────────
-    const onMove = (e) => { mouse.x = e.clientX; mouse.y = e.clientY; };
+    const onMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
     window.addEventListener('mousemove', onMove);
 
-    // ── Click: spawn burst ───────────────────────────────────────────────────
     const onClick = (e) => {
       for (let i = 0; i < 4; i++) {
         particles.push(makeParticle(e.clientX, e.clientY));
@@ -38,7 +33,6 @@ export default function ParticleBackground() {
     };
     window.addEventListener('click', onClick);
 
-    // ── Particle factory ─────────────────────────────────────────────────────
     const makeParticle = (x, y) => ({
       x: x ?? Math.random() * window.innerWidth,
       y: y ?? Math.random() * window.innerHeight,
@@ -51,7 +45,6 @@ export default function ParticleBackground() {
 
     const particles = Array.from({ length: 100 }, () => makeParticle());
 
-    // ── Draw loop ────────────────────────────────────────────────────────────
     const LINK_DIST = 140;
     const REPULSE_DIST = 120;
     const MAX_SPEED = 3;
@@ -60,17 +53,13 @@ export default function ParticleBackground() {
       const W = canvas.width;
       const H = canvas.height;
 
-      // Background fill
       ctx.fillStyle = '#0a0a0b';
       ctx.fillRect(0, 0, W, H);
 
-      // Update & draw particles
       for (const p of particles) {
-        // Opacity pulse
         p.opacity += 0.004 * p.opacityDir;
         if (p.opacity > 0.7 || p.opacity < 0.15) p.opacityDir *= -1;
 
-        // Mouse repulse
         const dx = p.x - mouse.x;
         const dy = p.y - mouse.y;
         const d = Math.sqrt(dx * dx + dy * dy);
@@ -80,23 +69,24 @@ export default function ParticleBackground() {
           p.vy += (dy / d) * force;
         }
 
-        // Speed cap
         const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-        if (spd > MAX_SPEED) { p.vx = (p.vx / spd) * MAX_SPEED; p.vy = (p.vy / spd) * MAX_SPEED; }
+        if (spd > MAX_SPEED) {
+          p.vx = (p.vx / spd) * MAX_SPEED;
+          p.vy = (p.vy / spd) * MAX_SPEED;
+        }
 
-        // Move & bounce
-        p.x += p.vx; p.y += p.vy;
+        p.x += p.vx;
+        p.y += p.vy;
         if (p.x < 0 || p.x > W) p.vx *= -1;
         if (p.y < 0 || p.y > H) p.vy *= -1;
 
-        // Draw dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${COLOR},${p.opacity})`;
         ctx.fill();
       }
 
-      // Draw links (O(n²) but fine for n=100)
+      // O(n²) but fine for n=100
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -135,8 +125,8 @@ export default function ParticleBackground() {
         left: 0,
         width: '100%',
         height: '100%',
-        zIndex: -1,           // React inline style — nothing can override this
-        pointerEvents: 'none', // pass through clicks to page content
+        zIndex: -1,
+        pointerEvents: 'none',
         display: 'block',
       }}
     />

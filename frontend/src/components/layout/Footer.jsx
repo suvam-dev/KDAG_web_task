@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- * Responsive Footer Layout component containing branding, social connections,
- * structured page links, and professional legal / signature attributes.
- */
 export default function Footer() {
   return (
     <footer className="py-16 px-5 md:px-10 border-t border-line bg-bg-2">
